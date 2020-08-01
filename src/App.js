@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./tailwind.css";
+import db from "./firebase";
+import Blog from "./Blog";
+import Post from "./Post";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-function App() {
+const App = () => {
+  const [posts, setPosts] = React.useState([]);
+
+  useEffect(() => {
+    db.collection("posts").onSnapshot((snapshot) =>
+      setPosts(snapshot.docs.map((doc) => doc.data())),
+    );
+  }, [posts]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav className="px-4 py-2 container mx-auto max-w-screen-lg bg-gray-300">
+        <a href="/">Blog Remco smits</a>
+      </nav>
+      <main className="px-4 py-2 container mx-auto max-w-screen-lg">
+        <Router>
+          <Switch>
+            <Route path="/post/:title">
+              <Post />
+            </Route>
+            <Route path="/">
+              {posts.map(({ context, id, img, title }) => (
+                <Link context={context} to={"/post/" + title} key={id}>
+                  <Blog id={id} title={title} img={img} context={context} />
+                </Link>
+              ))}
+            </Route>
+          </Switch>
+        </Router>
+      </main>
     </div>
   );
-}
+};
 
 export default App;
