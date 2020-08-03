@@ -1,4 +1,6 @@
-I heb een blog gemaakt met React JS en als backend firebase(firestore). This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ik heb een blog gemaakt met React JS en als backend firebase(firestore). Je kunt gemakkelijk een post toevoegen. Ook worden alle posts automatisch gestyled doormiddel markdown css file met tailwind css.
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
