@@ -4,12 +4,8 @@ Ik heb een blog gemaakt met React JS en als backend firebase(firestore). Je kunt
 
 [Bekijk de blog in mijn portfolio](https://rswebdevelopment.nl/portfolio).
 
-## Available Scripts
-
-In the project directory, you can run:
+## Command om de blog local te runnen
 
 ### `yarn start`
 
-Runs the blog in the development mode.<br /> Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br /> You will also see any lint errors in the console.
+[http://localhost:3000](http://localhost:3000)
