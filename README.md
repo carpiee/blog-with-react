@@ -8,4 +8,4 @@ Ik heb een blog gemaakt met React JS en als backend firebase(firestore). Je kunt
 
 ### `yarn start`
 
-[http://localhost:3000](http://localhost:3000)
+[Je kan dan de blog bekijken](http://localhost:3000)
