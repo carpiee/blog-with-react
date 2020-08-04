@@ -31,12 +31,13 @@ const App = () => {
       <Header />
       <main className="px-4 py-2 w-full container mx-auto max-w-3xl">
         {loading ? (
-          <div className="mt-20 flex justify-center items-center">
+          <div className="mt-20 flex justify-center">
             <h1 className="text-3xl font-semibold">Loading...</h1>
           </div>
         ) : (
           ""
         )}
+
         <Switch>
           <Route path="/post/:slug">
             <Post />

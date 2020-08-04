@@ -9,7 +9,7 @@ const Create = () => {
 
   const generate = () => {
     const now = new Date();
-    const options = { month: "long", day: "numeric", year: "numeric" };
+    const options = { day: "numeric", month: "long", year: "numeric" };
 
     const year = now.getFullYear();
     let month = now.getMonth() + 1;
@@ -23,7 +23,7 @@ const Create = () => {
     }
     return {
       formatted: `${year}-${month}-${day}`,
-      pretty: now.toLocaleDateString("en-US", options),
+      pretty: now.toLocaleDateString("nl-NL", options),
     };
   };
   const createPost = () => {
