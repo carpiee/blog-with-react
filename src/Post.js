@@ -5,11 +5,11 @@ import { useParams } from "react-router-dom";
 const Post = () => {
   const [loading, setLoading] = useState(true);
   const [post, setPost] = React.useState([]);
-  const { title } = useParams();
+  const { slug } = useParams();
   useEffect(() => {
     db.firestore()
       .collection("posts")
-      .where("title", "==", title.split("-").join(" "))
+      .where("slug", "==", slug)
       .get()
       .then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {

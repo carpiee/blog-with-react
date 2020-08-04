@@ -2,6 +2,7 @@ import React, { userState, useEffect } from "react";
 import db from "./firebase";
 const Create = () => {
   const [title, setTitle] = React.useState("");
+  const [slug, setSlug] = React.useState("");
   const [image, setImageURL] = React.useState("");
   const [preview, setPreview] = React.useState("");
   const [context, setContext] = React.useState("");
@@ -29,6 +30,7 @@ const Create = () => {
     const date = generate();
     const newPost = {
       title,
+      slug,
       dateFormatted: date.formatted,
       datum: date.pretty,
       preview,
@@ -39,7 +41,7 @@ const Create = () => {
       .collection("posts")
       .add(newPost)
       .then(() => {
-        window.location.href = "/post/" + title.split(" ").join("-");
+        window.location.href = "/post/" + slug;
       });
   };
   return (
@@ -54,7 +56,23 @@ const Create = () => {
           placeholder="Title"
           onChange={({ target: { value } }) => {
             setTitle(value);
+            setSlug(
+              value
+                .split(" ")
+                .join("-")
+                .split("?")
+                .join("")
+                .split("&")
+                .join(""),
+            );
           }}
+        />
+        <input
+          className="px-4 py-2 border rounded"
+          type="slug"
+          placeholder="Slug"
+          value={slug}
+          disabled
         />
         <input
           className="px-4 py-2 border rounded"

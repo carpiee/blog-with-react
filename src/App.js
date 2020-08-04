@@ -15,6 +15,7 @@ const App = () => {
     const unsubscribe = db
       .firestore()
       .collection("posts")
+      .orderBy("dateFormatted", "desc")
       .onSnapshot(
         (snapshot) => setPosts(snapshot.docs.map((doc) => doc.data())),
         setLoading(false),
@@ -25,20 +26,19 @@ const App = () => {
     };
   }, [posts]);
 
-  if (loading) {
-    return (
-      <div className="fixed inset-0 h-screen flex justify-center items-center">
-        <h1 className="text-3xl font-semibold">Loading...</h1>{" "}
-      </div>
-    );
-  }
-
   return (
     <Router>
       <Header />
       <main className="px-4 py-2 w-full container mx-auto max-w-3xl">
+        {loading ? (
+          <div className="mt-20 flex justify-center items-center">
+            <h1 className="text-3xl font-semibold">Loading...</h1>
+          </div>
+        ) : (
+          ""
+        )}
         <Switch>
-          <Route path="/post/:title">
+          <Route path="/post/:slug">
             <Post />
           </Route>
           <Route path="/create">
@@ -46,10 +46,11 @@ const App = () => {
           </Route>
           <Route path="/">
             <div className="divide-y">
-              {posts.map(({ preview, datum, context, img, title }) => (
+              {posts.map(({ preview, datum, context, img, title, slug }) => (
                 <Blog
                   datum={datum}
                   title={title}
+                  slug={slug}
                   img={img}
                   preview={preview}
                   key={title}
