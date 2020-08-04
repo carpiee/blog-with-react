@@ -130519,28 +130519,28 @@ video {
   }
 }
 
-#markdown img {
+#markdown > img {
   margin-bottom: 1rem !important;
 }
 
-#markdown h2 {
+#markdown > h2 {
   padding-top: 1.5rem !important;
   font-weight: 700 !important;
   font-size: 1.25rem !important;
 }
 
-#markdown h3 {
+#markdown > h3 {
   padding-top: 1.5rem !important;
   font-weight: 700 !important;
   font-size: 1.125rem !important;
 }
 
-#markdown a {
+#markdown > a {
   font-weight: 600 !important;
   text-decoration: underline !important;
 }
 
-#markdown blockquote {
+#markdown > blockquote {
   padding-left: 1rem !important;
   margin-bottom: 2rem !important;
   border-left-width: 4px !important;
@@ -130551,7 +130551,7 @@ video {
   font-style: italic !important;
 }
 
-#markdown ul {
+#markdown > ul {
   padding-left: 1.25rem !important;
   margin-left: -1px !important;
   margin-bottom: 1rem !important;
@@ -130559,7 +130559,7 @@ video {
   list-style-position: outside !important;
 }
 
-#markdown ol {
+#markdown > ol {
   padding-left: 1.25rem !important;
   margin-left: -1px !important;
   margin-bottom: 1rem !important;
@@ -130567,17 +130567,19 @@ video {
   list-style-position: outside !important;
 }
 
-#markdown li {
+#markdown > ul li,
+ol li {
   padding-bottom: 0.5rem !important;
 }
 
-#markdown p code {
+#markdown > p > code {
   font-size: 0.875rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.05em !important;
 }
 
-#markdown pre {
+#markdown > pre {
+  margin-top: 1rem;
   padding: 0;
   margin: 0;
   --bg-opacity: 1;
@@ -130590,31 +130592,26 @@ video {
   color: rgba(255, 255, 255, var(--text-opacity));
 }
 
-#markdown pre code {
+#markdown > pre > code {
   padding: 1rem;
   display: inline-block;
 }
 
 @media (min-width: 768px) {
-  #markdown ul,
+  #markdown > ul,
   ol {
     padding-left: 0.75rem;
     margin-left: 0.25rem;
   }
 
-  #markdown blockquote {
+  #markdown > blockquote {
     padding-left: 1.5rem;
   }
 }
 
-#markdown p code::after,
-p code::before {
+#markdown > p > code::after,
+p > code::before {
   content: "`";
-}
-
-#markdown pre code::after,
-code::before {
-  content: "";
 }
 
 .mt-15 {
@@ -130634,4 +130631,8 @@ code::before {
 input:checked ~ .toggle__dot {
   transform: translateX(100%);
   background-color: #48bb78;
+}
+
+#markdown > pre::-webkit-scrollbar {
+  display: none;
 }

@@ -6,68 +6,64 @@
 
 @tailwind screens;
 
-#markdown img {
+#markdown > img {
   @apply mb-4 !important;
 }
 
-#markdown h2 {
+#markdown > h2 {
   @apply pt-6 font-bold text-xl !important;
 }
 
-#markdown h3 {
+#markdown > h3 {
   @apply pt-6 font-bold text-lg !important;
 }
 
-#markdown a {
+#markdown > a {
   @apply font-semibold underline !important;
 }
 
-#markdown blockquote {
+#markdown > blockquote {
   @apply pl-4 mb-8 border-l-4 text-sm text-gray-600 italic !important;
 }
 
-#markdown ul {
+#markdown > ul {
   @apply pl-5 -ml-px mb-4 list-disc list-outside !important;
 }
 
-#markdown ol {
+#markdown > ol {
   @apply pl-5 -ml-px mb-4 list-decimal list-outside !important;
 }
 
-#markdown li {
+#markdown > ul li,
+ol li {
   @apply pb-2 !important;
 }
 
-#markdown p code {
+#markdown > p > code {
   @apply text-sm font-bold tracking-wider !important;
 }
 
-#markdown pre {
-  @apply p-0 m-0 bg-gray-900 rounded-md overflow-x-auto text-white;
+#markdown > pre {
+  @apply mt-4 p-0 m-0 bg-gray-900 rounded-md overflow-x-auto text-white;
 }
 
-#markdown pre code {
+#markdown > pre > code {
   @apply p-4 inline-block;
 }
 
 @screen md {
-  #markdown ul,
+  #markdown > ul,
   ol {
     @apply pl-3 ml-1;
   }
-  #markdown blockquote {
+  #markdown > blockquote {
     @apply pl-6;
   }
 }
 
-#markdown p code::after,
-p code::before {
+#markdown > p > code::after,
+p > code::before {
   content: "`";
-}
-
-#markdown pre code::after,
-code::before {
-  content: "";
 }
 
 .mt-15 {
@@ -88,4 +84,8 @@ code::before {
 input:checked ~ .toggle__dot {
   transform: translateX(100%);
   background-color: #48bb78;
+}
+
+#markdown > pre::-webkit-scrollbar {
+  display: none;
 }

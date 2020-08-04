@@ -22,7 +22,7 @@ const Create = () => {
       day = `0${day}`;
     }
     return {
-      formatted: `${year}-${month}-${day}`,
+      formatted: `${now.toLocaleString()}`,
       pretty: now.toLocaleDateString("nl-NL", options),
     };
   };

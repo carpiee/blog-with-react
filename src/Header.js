@@ -15,7 +15,7 @@ function Header() {
             Create a post
           </Link>
         </div>
-        <p className="pb-6 text-lg text-gray-600">
+        <p className="pb-6 text-sm md:text-lg text-gray-600">
           Blog made with React JS and firesbase (firestore)
         </p>
       </div>

@@ -22,7 +22,7 @@ const Post = () => {
 
   if (loading) {
     return (
-      <div className="fixed inset-0 h-screen flex justify-center items-center">
+      <div className="mt-20 flex justify-center">
         <h1 className="text-3xl font-semibold">Loading...</h1>{" "}
       </div>
     );
