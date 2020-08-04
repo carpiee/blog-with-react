@@ -130634,5 +130634,5 @@ input:checked ~ .toggle__dot {
 }
 
 #markdown > pre::-webkit-scrollbar {
-  display: none;
+  display: none !important;
 }
