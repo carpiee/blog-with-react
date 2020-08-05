@@ -44,7 +44,7 @@ ol li {
 }
 
 #markdown > pre {
-  @apply mt-4 p-0 m-0 bg-gray-900 rounded-md overflow-x-auto text-white;
+  @apply mt-4 p-0 bg-gray-900 rounded-md overflow-x-auto text-white;
 }
 
 #markdown > pre > code {
